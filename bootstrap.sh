@@ -31,5 +31,8 @@ sudo rm ./$PS_VERSION
 ## Create a database
 mysql -uroot -pabc123 -e 'create database prestashop'
 
+# Increase max file upload size
+sed 's/upload_max_filesize.*$/upload_max_filesize = 20M/' /etc/php5/apache2/php.ini
+
 ## Restart Apache to get config changes
 sudo apachectl -k restart
